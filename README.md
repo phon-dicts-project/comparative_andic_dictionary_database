@@ -5,4 +5,5 @@ This database is collective work of G. Moroz and annotators  A. Averin, A. David
 
 Cite as the following:
 
-Moroz et al. (2021) Comparative Andic dictionary database, v. 0.1
+Moroz et al. (2021) Comparative Andic dictionary database, v. 0.1 Moscow: Linguistic Convergence Laboratory, HSE University. [cited 2021 May 23]. Available from:
+https://github.com/phon-dicts-project/comparative_andic_dictionary_database. doi: 
