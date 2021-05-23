@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/368442325.svg)](https://zenodo.org/badge/latestdoi/368442325)
+
 # Comparative Andic dictionary database
 
 This database is collective work of G. Moroz and annotators  A. Averin, A. Davidenko, N. Fedorenko, G. Kuznetsov, I. Sadakov,  and Z. Shkutko. In this database we adapted dictionaries from Akhvakh (akhv1239), Andi (andi1255), Bagvalal (bagv1239), Botlikh (botl1242), Chamalal (cham1309), Ghodoberi (ghod1238), Tindi (tind1238), Karata (kara1474), and Tokita (toki1238) by
@@ -6,4 +8,4 @@ This database is collective work of G. Moroz and annotators  A. Averin, A. David
 Cite as the following:
 
 Moroz et al. (2021) Comparative Andic dictionary database, v. 0.1 Moscow: Linguistic Convergence Laboratory, HSE University. [cited 2021 May 23]. Available from:
-https://github.com/phon-dicts-project/comparative_andic_dictionary_database. doi: 
+https://github.com/phon-dicts-project/comparative_andic_dictionary_database. DOI: 10.5281/zenodo.4782595
