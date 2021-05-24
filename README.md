@@ -9,3 +9,5 @@ Cite as the following:
 
 Moroz et al. (2021) Comparative Andic dictionary database, v. 0.1 Moscow: Linguistic Convergence Laboratory, HSE University. [cited 2021 May 23]. Available from:
 https://github.com/phon-dicts-project/comparative_andic_dictionary_database. DOI: 10.5281/zenodo.4782595
+
+If you spot any problems, please open [an issue](https://github.com/phon-dicts-project/comparative_andic_dictionary_database/issues/new).
