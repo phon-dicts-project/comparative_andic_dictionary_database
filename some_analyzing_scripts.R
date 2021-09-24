@@ -2,7 +2,7 @@ library(tidyverse)
 library(tidytext)
 
 # get the phonological discription of every language ----------------------
-df <- read_csv("https://raw.githubusercontent.com/phon-dicts-project/comparative_andic_dictionary_database/master/andic_dicts.csv")
+df <- read_csv("/home/agricolamz/work/databases/andic_dicts/andic_dicts.csv")
 
 df %>% 
   distinct(glottocode) %>% 
@@ -23,4 +23,3 @@ df %>%
   names(sound_list)
 
 sound_list
-
