@@ -23,3 +23,12 @@ df %>%
   names(sound_list)
 
 sound_list
+
+# creation table for borrowing annotation ---------------------------------
+
+df %>% 
+  select(lang, id_word, id_meaning, id, ipa, meaning_ru, bor, borrowing_source_word) %>% 
+  mutate(borrowing_source_transcription = "") %>% 
+  write_csv("andic_dicts_version_for_borrowings_annotation.csv", na = "")
+
+
