@@ -24,6 +24,10 @@ df %>%
 
 sound_list
 
+df %>% 
+  select(glottocode, reference, ipa) %>% 
+  unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "-") 
+
 # creation table for borrowing annotation ---------------------------------
 
 df %>% 
