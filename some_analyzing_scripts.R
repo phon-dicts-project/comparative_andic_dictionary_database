@@ -28,12 +28,35 @@ df %>%
   select(glottocode, reference, ipa) %>% 
   unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "-") 
 
-# creation table for borrowing annotation ---------------------------------
+# create a table of correspondences ---------------------------------------
+library(tidyverse)
+df <- read_csv("andic_dicts.csv")
 
 df %>% 
-  select(lang, id_word, id_meaning, id, ipa, meaning_ru, definition, bor, borrowing_source_word) %>% 
-  rename(borrowing_source_language = borrowing_source_word) %>% 
-  mutate(borrowing_source_transcription = "") %>% 
-  write_csv("andic_dicts_version_for_borrowings_annotation.csv", na = "")
+  distinct(glottocode) %>% 
+  mutate(language = lingtypology::lang.gltc(glottocode)) ->
+  languages
+
+df %>% 
+  left_join(languages) %>% 
+  mutate(languages_source = str_c(language, " (", reference, ")")) %>% 
+  filter(!is.na(meaning_ru)) %>% 
+  select(languages_source, lemma, meaning_ru, borrowing_source_language, definition) %>% 
+  mutate(borrowing_source_language = ifelse(is.na(borrowing_source_language),
+                                            "native",
+                                            borrowing_source_language)) %>% 
+  select(languages_source, lemma, meaning_ru, borrowing_source_language) %>% 
+  group_by(meaning_ru, languages_source) %>%
+  mutate(id = 1:n()) %>% 
+  sample_n(1) %>% 
+  pivot_longer(names_to = "names", values_to = "value",  c(lemma, borrowing_source_language)) %>% 
+  mutate(languages_source = ifelse(names != "lemma", str_c(languages_source, " bor"), languages_source)) %>%
+  select(-names) %>% 
+  pivot_wider(names_from = languages_source, values_from = value) ->
+  result
+
+result$n_languages <- 10-rowSums(is.na(result))/2
+
+write_csv(result, "all_langs_with_borrowing.csv", na = "")
 
 
