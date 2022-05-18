@@ -24,6 +24,13 @@ df %>%
 
 sound_list
 
+# df %>% 
+#   mutate(ipa = str_replace_all(ipa, "ũ", "ũ"),
+#          ipa = str_replace_all(ipa, "о̃", "õ"),
+#          ipa = str_replace_all(ipa, "χ-w", "χʷ")) %>% 
+#   write_csv("andic_dicts.csv", na = "")
+#   
+
 df %>% 
   select(glottocode, reference, ipa) %>% 
   unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "[- ]") 
@@ -52,3 +59,5 @@ df %>%
 result$n_languages <- 10-rowSums(is.na(result))/2
 
 write_csv(result, "all_langs_with_borrowing.csv", na = "")
+
+
