@@ -10,7 +10,7 @@ df %>%
   map(function(x){
     df %>% 
       filter(glottocode == x) %>% 
-      unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "-") %>% 
+      unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "[- ]") %>% 
       distinct(sound) %>% 
       pull(sound) %>% 
       sort()
