@@ -25,24 +25,8 @@ df %>%
 sound_list
 
 df %>% 
-  mutate(ipa = str_replace_all(ipa, "eˌ", "ˌe"),
-         ipa = str_replace_all(ipa, "aːˌ", "ˌaː"),
-         ipa = str_replace_all(ipa, "iˌ", "ˌi"),
-         ipa = str_replace_all(ipa, "ĩː",  "ĩː"),
-         ipa = str_replace_all(ipa, "ĩː", "ĩː"),
-         ipa = str_replace_all(ipa, "oˌ", "ˌo"),
-         ipa = str_replace_all(ipa, "ũ", "ũ"),
-         ipa = str_replace_all(ipa, "ũ", "ũ"),
-         ipa = str_replace_all(ipa, "uˌ", "ˌu"),
-         ipa = str_replace_all(ipa, "õ", "о̃"),
-         ipa = str_replace_all(ipa, "õː","о̃ː" ),
-         ipa = str_replace_all(ipa, "aˌ", "ˌa")) %>% 
-  write_csv("andic_dicts.csv", na = "")
-  
-
-df %>% 
   select(glottocode, reference, ipa) %>% 
-  unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "-") 
+  unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "[- ]") 
 
 # create a table of correspondences ---------------------------------------
 library(tidyverse)
@@ -68,5 +52,3 @@ df %>%
 result$n_languages <- 10-rowSums(is.na(result))/2
 
 write_csv(result, "all_langs_with_borrowing.csv", na = "")
-
-
