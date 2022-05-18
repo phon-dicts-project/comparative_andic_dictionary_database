@@ -24,13 +24,6 @@ df %>%
 
 sound_list
 
-# df %>% 
-#   mutate(ipa = str_replace_all(ipa, "ũ", "ũ"),
-#          ipa = str_replace_all(ipa, "о̃", "õ"),
-#          ipa = str_replace_all(ipa, "χ-w", "χʷ")) %>% 
-#   write_csv("andic_dicts.csv", na = "")
-#   
-
 df %>% 
   select(glottocode, reference, ipa) %>% 
   unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "[- ]") 
