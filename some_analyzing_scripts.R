@@ -24,9 +24,21 @@ df %>%
 
 sound_list
 
+map(sound_list, function(x){x %>% str_detect("['ˌ]", negate = TRUE) %>% length()})
+
+map(sound_list, function(i){
+  "qχ" %in% i  
+})
+
 df %>% 
   select(glottocode, reference, ipa) %>% 
-  unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "[- ]") 
+  unnest_tokens(sound, ipa, token = stringr::str_split, pattern = "[- ]")  %>% 
+  filter(!is.na(sound)) %>% 
+  mutate(vowel = ifelse(str_detect(sound, "[ioeau]"), "vowel", "consonant"),
+         sound = ifelse(vowel == "vowel", str_remove_all(sound, "['ˌ]"), sound)) %>% 
+  distinct() %>% 
+  count(reference, glottocode, vowel) %>% 
+  pivot_wider(names_from = vowel, values_from = n)
 
 # create a table of correspondences ---------------------------------------
 library(tidyverse)
