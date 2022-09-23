@@ -63,6 +63,9 @@ df %>%
 
 result$n_languages <- 10-rowSums(is.na(result))/2
 
-write_csv(result, "all_langs_with_borrowing.csv", na = "")
+result %>% 
+  filter(n_languages >= 2) %>% 
+  arrange(-n_languages) %>% 
+  write_csv("all_langs_with_borrowing.csv", na = "")
 
 
