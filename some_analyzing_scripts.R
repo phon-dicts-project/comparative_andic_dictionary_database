@@ -55,6 +55,7 @@ df %>%
   group_by(meaning_ru, languages_source) %>%
   mutate(id = 1:n()) %>% 
   sample_n(1) %>% 
+  select(-id) %>% 
   pivot_longer(names_to = "names", values_to = "value",  c(ipa, borrowing_source_language)) %>% 
   mutate(languages_source = ifelse(names != "ipa", str_c(languages_source, " bor"), languages_source)) %>%
   select(-names) %>% 
@@ -66,6 +67,6 @@ result$n_languages <- 10-rowSums(is.na(result))/2
 result %>% 
   filter(n_languages >= 2) %>% 
   arrange(-n_languages) %>% 
-  write_csv("all_langs_with_borrowing.csv", na = "")
+  write_csv("andic_dicts_database_export.csv", na = "")
 
 
