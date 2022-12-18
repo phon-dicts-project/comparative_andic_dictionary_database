@@ -7,7 +7,7 @@ This database is collective work of G. Moroz and annotators  A. Averin, D. Chist
 
 Cite as the following:
 
-Moroz G., A. Averin, D. Chistyakova, A. Davidenko, N. Fedorenko, T. Gnedina, G. Kuznetsov, C. Naccarato, G. Moroz, I. Sadakov, Z. Shkutko, A. Tsyzova, S. Verhees, M. Dolgodvorova, K. Chuprinko (2021) Comparative Andic dictionary database, v. 0.6 Moscow: Linguistic Convergence Laboratory, HSE University. [cited ...]. Available from:
+Moroz G., A. Averin, D. Chistyakova, K. Chuprinko, A. Davidenko, M. Dolgodvorova, N. Fedorenko, T. Gnedina, G. Kuznetsov, C. Naccarato, I. Sadakov, Z. Shkutko, A. Tsyzova, S. Verhees (2022) Comparative Andic dictionary database, v. 0.6 Moscow: Linguistic Convergence Laboratory, HSE University. [cited ...]. Available from:
 https://github.com/phon-dicts-project/comparative_andic_dictionary_database. DOI: 10.5281/zenodo.4782876
 
 If you spot any problems, please open [an issue](https://github.com/phon-dicts-project/comparative_andic_dictionary_database/issues/new).
